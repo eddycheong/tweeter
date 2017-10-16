@@ -21,7 +21,7 @@ body {
   font-family: 'Roboto Condensed', sans-serif;
 }
 
-main .container {
+main.container {
   margin: 0px auto;
   padding-top: 140px;
   width: 450px;
