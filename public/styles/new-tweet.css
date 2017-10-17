@@ -18,3 +18,7 @@
 .new-tweet span {
   float: right;
 }
+
+.new-tweet .error {
+  color: red;
+}

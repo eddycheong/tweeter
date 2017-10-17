@@ -1,16 +1,16 @@
 $(document).ready(function() {
   const charLimit = 140;
+  const errorClass = "error";
 
-  $(".new-tweet textarea").on("keyup", function() {
+  $(".new-tweet textarea").on("input", function() {
     const counter = $(this).siblings(".counter"),
           charCount = $(this).val().length;
 
-    if(charCount < charLimit) {
-      counter.css("color", "");
-    } else {
-      counter.css("color", "red");
-    }
-
+    counter.removeClass(errorClass);
     counter.text(charLimit - charCount);
+
+    if(charCount > charLimit) {
+      counter.addClass(errorClass);
+    }
   });
 });
