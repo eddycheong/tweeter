@@ -7,33 +7,6 @@
 $(function() {
   CHAR_LIMIT = 140;
 
-  function daysSince(date) {
-      var DAY_IN_MS = 1000 * 60 * 60 * 24
-
-      // Calculate the difference in milliseconds
-      var difference = Math.abs(Date.now() - date)
-
-      // Convert back to days and return
-      return Math.round(difference/DAY_IN_MS)
-  }
-
-
-  function isTweetEmpty(tweet) {
-    if(tweet !== "" && tweet !== null) {
-      return false;
-    }
-
-    return true;
-  }
-
-  function isTweetTooLong(tweet) {
-    if(tweet.length <= CHAR_LIMIT) {
-      return false;
-    }
-
-    return true;
-  }
-
   function createTweetElement(tweet) {
 
     const source = $("#tweet-template").html();
@@ -81,7 +54,6 @@ $(function() {
 
       composer[0].reset();
       composer.find(".counter").text(CHAR_LIMIT);
-
       loadTweets();
     });
   }
@@ -103,7 +75,7 @@ $(function() {
       }
 
       if(isTweetTooLong(tweet)) {
-        invalidTweet.text("Tweets cannot be longer than the character limit.")
+        invalidTweet.text(`Tweets cannot be longer than ${CHAR_LIMIT} characters.`)
         $(".new-tweet").before(invalidTweet);
         return;
       }
