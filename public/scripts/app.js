@@ -16,6 +16,7 @@ $(function() {
       return Math.round(difference/DAY_IN_MS)
   }
 
+  // TODO: refactor with handlebars?
   function createTweetElement(tweet) {
     $header = $("<header>")
                   .append($("<img>").attr("src", tweet.user.avatars.small))
@@ -60,19 +61,56 @@ $(function() {
     });
   }
 
+  function isTweetEmpty(tweet) {
+    if(tweet !== "" && tweet !== null) {
+      return false;
+    }
+
+    return true;
+  }
+
+  function isTweetTooLong(tweet) {
+    if(tweet.length <= 140) {
+      return false;
+    }
+
+    return true;
+  }
+
+  function postTweet(tweet) {
+    $.ajax({
+      url: 'tweets',
+      method: 'POST',
+      data: tweet
+    })
+    .done(function() {
+      console.log("Successfully submitted tweet.")
+    });
+  }
+
   function submitTweet() {
     $(".new-tweet form").on("submit", function(event){
       event.preventDefault();
 
-      // TODO: refactor to "postTweet". Feature
-      $.ajax({
-        url: 'tweets',
-        method: 'POST',
-        data: $(this).serialize()
-      })
-      .done(function() {
-        console.log("Successfully submitted tweet.")
-      });
+      $(".new-tweet.invalid").remove();
+
+      const tweet = $(this).find("textarea").val();
+      const invalidTweet = $("<p>").addClass("new-tweet invalid");
+
+      // These two functions are repeating, DRY them
+      if(isTweetEmpty(tweet)) {
+        invalidTweet.text("empty tweet")
+        $(".new-tweet").before(invalidTweet);
+        return;
+      }
+
+      if(isTweetTooLong(tweet)) {
+        invalidTweet.text("long tweet")
+        $(".new-tweet").before(invalidTweet);
+        return;
+      }
+
+      postTweet($(this).serialize());
     });
   }
 

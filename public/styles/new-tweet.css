@@ -22,3 +22,13 @@
 .new-tweet .error {
   color: red;
 }
+
+.new-tweet.invalid {
+  border-radius: 5px;
+  border: 2px solid #FF0000;
+  background-color: #FF7575;
+  color: white;
+  font-size: 20px;
+  margin: 0px 2em;
+  padding: 10px;
+}
