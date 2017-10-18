@@ -84,7 +84,8 @@ $(function() {
       data: tweet
     })
     .done(function() {
-      console.log("Successfully submitted tweet.")
+      $(".new-tweet form")[0].reset();
+      loadTweets();
     });
   }
 
@@ -111,7 +112,6 @@ $(function() {
       }
 
       postTweet($(this).serialize());
-      $(this)[0].reset(); // better way to express this?
     });
   }
 
