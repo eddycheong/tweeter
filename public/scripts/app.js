@@ -51,7 +51,8 @@ $(function() {
         "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
       },
       "created_at": 1461113796368
-    }
+    },
+    {"user":{"name":"Ina Robinson","handle":"@DrRobinson","avatars":{"small":"https://vanillicon.com/231ef83609cefcce9e620c7ac80cd653_50.png","regular":"https://vanillicon.com/231ef83609cefcce9e620c7ac80cd653.png","large":"https://vanillicon.com/231ef83609cefcce9e620c7ac80cd653_200.png"}},"content":{"text":"<script>alert('uh oh!');</script>\r\n"},"created_at":1508292201916}
   ];
 
   function daysSince(date) {
