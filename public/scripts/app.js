@@ -60,5 +60,20 @@ $(function() {
     });
   }
 
+  function submitTweet() {
+    $(".new-tweet form").on("submit", function(event){
+      event.preventDefault();
+      $.ajax({
+        url: 'tweets',
+        method: 'POST',
+        data: $(this).serialize(),
+        success: function () {
+          console.log("send post request");
+        }
+      });
+    });
+  }
+
   loadTweets();
+  submitTweet();
 });
