@@ -5,6 +5,7 @@
  */
 
 $(function() {
+  CHAR_LIMIT = 140;
 
   function daysSince(date) {
       var DAY_IN_MS = 1000 * 60 * 60 * 24
@@ -70,7 +71,7 @@ $(function() {
   }
 
   function isTweetTooLong(tweet) {
-    if(tweet.length <= 140) {
+    if(tweet.length <= CHAR_LIMIT) {
       return false;
     }
 
@@ -84,7 +85,11 @@ $(function() {
       data: tweet
     })
     .done(function() {
-      $(".new-tweet form")[0].reset();
+      const composer = $(".new-tweet form");
+
+      composer[0].reset();
+      composer.find(".counter").text(CHAR_LIMIT);
+
       loadTweets();
     });
   }

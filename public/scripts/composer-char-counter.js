@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  const charLimit = 140;
   const errorClass = "error";
 
   $(".new-tweet textarea").on("input", function() {
@@ -7,9 +6,9 @@ $(document).ready(function() {
           charCount = $(this).val().length;
 
     counter.removeClass(errorClass);
-    counter.text(charLimit - charCount);
+    counter.text(CHAR_LIMIT - charCount);
 
-    if(charCount > charLimit) {
+    if(charCount > CHAR_LIMIT) {
       counter.addClass(errorClass);
     }
   });
