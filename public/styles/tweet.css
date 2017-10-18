@@ -9,7 +9,7 @@
   border: 2px solid #666666;
 }
 
-.tweet:hover footer .fa {
+.tweet:hover footer span {
   display: inline;
 }
 
@@ -49,11 +49,13 @@
   display: inline;
 }
 
-.tweet footer .fa {
+.tweet footer span {
   display: none;
-  color: #00CBBA;
-  padding: 2px;
   float: right;
+}
+
+.tweet footer .fa {
+  color: #00CBBA;
 }
 
 .tweet p {
