@@ -47,7 +47,7 @@ $(function() {
 
     tweets.forEach((tweet) => {
       $tweet = createTweetElement(tweet);
-      $tweetsContainer.append($tweet);
+      $tweetsContainer.prepend($tweet);
     });
   }
 
@@ -111,6 +111,7 @@ $(function() {
       }
 
       postTweet($(this).serialize());
+      $(this)[0].reset(); // better way to express this?
     });
   }
 
