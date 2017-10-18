@@ -53,23 +53,25 @@ $(function() {
   function loadTweets() {
     $.ajax({
       url: 'tweets',
-      method: 'GET',
-      success: function(tweets) {
-        renderTweets(tweets);
-      }
+      method: 'GET'
+    })
+    .done(function(tweets) {
+      renderTweets(tweets)
     });
   }
 
   function submitTweet() {
     $(".new-tweet form").on("submit", function(event){
       event.preventDefault();
+
+      // TODO: refactor to "postTweet". Feature
       $.ajax({
         url: 'tweets',
         method: 'POST',
-        data: $(this).serialize(),
-        success: function () {
-          console.log("send post request");
-        }
+        data: $(this).serialize()
+      })
+      .done(function() {
+        console.log("Successfully submitted tweet.")
       });
     });
   }
