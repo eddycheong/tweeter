@@ -17,7 +17,7 @@ $(function() {
       name: tweet.user.name,
       handle: tweet.user.handle,
       text: tweet.content.text,
-      timeSince: daysSince(tweet.created_at)
+      timeSince: moment(tweet.created_at).fromNow()
     };
 
     return tweetTemplate(tweetData);
