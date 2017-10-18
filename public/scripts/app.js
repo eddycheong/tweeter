@@ -17,29 +17,20 @@ $(function() {
       return Math.round(difference/DAY_IN_MS)
   }
 
-  // TODO: refactor with handlebars?
   function createTweetElement(tweet) {
-    $header = $("<header>")
-                  .append($("<img>").attr("src", tweet.user.avatars.small))
-                  .append($("<h1>").text(tweet.user.name))
-                  .append($("<span>").text(tweet.user.handle));
 
-    $content = $("<p>").text(tweet.content.text);
+    const source = $("#tweet-template").html();
+    const tweetTemplate = Handlebars.compile(source);
 
-    $footer = $("<footer>")
-                  .append($("<p>").text(`${daysSince(tweet.created_at)} days ago`))
-                  .append($("<span>")
-                    .append($("<i>").addClass("fa fa-flag"))
-                    .append($("<i>").addClass("fa fa-retweet"))
-                    .append($("<i>").addClass("fa fa-heart"))
-                  );
+    const tweetData = {
+      avatar: tweet.user.avatars.small,
+      name: tweet.user.name,
+      handle: tweet.user.handle,
+      text: tweet.content.text,
+      timeSince: daysSince(tweet.created_at)
+    };
 
-    $tweet = $("<article>").addClass("tweet")
-                  .append($header)
-                  .append($content)
-                  .append($footer);
-
-    return $tweet;
+    return tweetTemplate(tweetData);
   }
 
   function renderTweets(tweets) {
