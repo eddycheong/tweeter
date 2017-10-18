@@ -99,13 +99,13 @@ $(function() {
 
       // These two functions are repeating, DRY them
       if(isTweetEmpty(tweet)) {
-        invalidTweet.text("empty tweet")
+        invalidTweet.text("Tweets cannot be empty.")
         $(".new-tweet").before(invalidTweet);
         return;
       }
 
       if(isTweetTooLong(tweet)) {
-        invalidTweet.text("long tweet")
+        invalidTweet.text("Tweets cannot be longer than the character limit.")
         $(".new-tweet").before(invalidTweet);
         return;
       }
