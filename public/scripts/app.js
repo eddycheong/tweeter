@@ -17,6 +17,23 @@ $(function() {
       return Math.round(difference/DAY_IN_MS)
   }
 
+
+  function isTweetEmpty(tweet) {
+    if(tweet !== "" && tweet !== null) {
+      return false;
+    }
+
+    return true;
+  }
+
+  function isTweetTooLong(tweet) {
+    if(tweet.length <= CHAR_LIMIT) {
+      return false;
+    }
+
+    return true;
+  }
+
   function createTweetElement(tweet) {
 
     const source = $("#tweet-template").html();
@@ -33,16 +50,6 @@ $(function() {
     return tweetTemplate(tweetData);
   }
 
-  function renderTweets(tweets) {
-    $tweetsContainer = $('#tweets-container');
-    $tweetsContainer.empty();
-
-    tweets.forEach((tweet) => {
-      $tweet = createTweetElement(tweet);
-      $tweetsContainer.prepend($tweet);
-    });
-  }
-
   function loadTweets() {
     $.ajax({
       url: 'tweets',
@@ -53,20 +60,14 @@ $(function() {
     });
   }
 
-  function isTweetEmpty(tweet) {
-    if(tweet !== "" && tweet !== null) {
-      return false;
-    }
+  function renderTweets(tweets) {
+    $tweetsContainer = $('#tweets-container');
+    $tweetsContainer.empty();
 
-    return true;
-  }
-
-  function isTweetTooLong(tweet) {
-    if(tweet.length <= CHAR_LIMIT) {
-      return false;
-    }
-
-    return true;
+    tweets.forEach((tweet) => {
+      $tweet = createTweetElement(tweet);
+      $tweetsContainer.prepend($tweet);
+    });
   }
 
   function postTweet(tweet) {
@@ -110,14 +111,6 @@ $(function() {
       postTweet($(this).serialize());
     });
   }
-
-  $("#nav-bar button").on("click", function(event) {
-    event.preventDefault();
-
-    $(".new-tweet").slideToggle(function() {
-      $(this).find("textarea").focus();
-    });
-  });
 
   loadTweets();
   submitTweet();
