@@ -85,9 +85,9 @@ body {
   margin: 10px 2em; }
   .tweet:hover {
     border: 2px solid #666666; }
-    .tweet:hover:hover footer span {
+    .tweet:hover footer span {
       display: inline; }
-    .tweet:hover:hover header {
+    .tweet:hover header {
       opacity: 1; }
   .tweet header {
     overflow: auto;
