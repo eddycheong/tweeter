@@ -67,16 +67,15 @@ $(function() {
       const tweet = $(this).find("textarea").val();
       const invalidTweet = $("<p>").addClass("new-tweet invalid");
 
-      // These two functions are repeating, DRY them
-      if(isTweetEmpty(tweet)) {
-        invalidTweet.text("Tweets cannot be empty.")
-        $(".new-tweet").before(invalidTweet);
+      if(!isValidTweet(tweet,
+                      isTweetEmpty,
+                      "Tweets cannot be empty.")) {
         return;
       }
 
-      if(isTweetTooLong(tweet)) {
-        invalidTweet.text(`Tweets cannot be longer than ${CHAR_LIMIT} characters.`)
-        $(".new-tweet").before(invalidTweet);
+      if(!isValidTweet(tweet,
+                      isTweetTooLong,
+                      `Tweets cannot be longer than ${CHAR_LIMIT} characters.`)) {
         return;
       }
 

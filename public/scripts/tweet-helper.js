@@ -13,3 +13,15 @@ function isTweetTooLong(tweet) {
 
   return true;
 }
+
+function isValidTweet(tweet, validateCallback, errorMessage) {
+  const invalidTweet = $("<p>").addClass("new-tweet invalid");
+
+  if(validateCallback(tweet)) {
+      invalidTweet.text(errorMessage)
+      $(".new-tweet").before(invalidTweet);
+      return false;
+  }
+
+  return true;
+}

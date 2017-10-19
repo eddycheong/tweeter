@@ -61,4 +61,5 @@
 
 .tweet p {
   padding: 10px 10px;
+  word-break: break-all;
 }
