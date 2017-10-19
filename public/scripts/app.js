@@ -5,7 +5,7 @@
  */
 
 $(function() {
-  CHAR_LIMIT = 140;
+  const CHAR_LIMIT = 140;
 
   function createTweetElement(tweet) {
 
@@ -87,6 +87,35 @@ $(function() {
 
       postTweet($(this).serialize());
     });
+  }
+
+  // Helper Functions
+  function isTweetEmpty(tweet) {
+    if(!!tweet) {
+      return false;
+    }
+
+    return true;
+  }
+
+  function isTweetTooLong(tweet) {
+    if(tweet.length <= CHAR_LIMIT) {
+      return false;
+    }
+
+    return true;
+  }
+
+  function isValidTweet(tweet, validateCallback, errorMessage) {
+    const invalidTweet = $("<p>").addClass("new-tweet invalid");
+
+    if(validateCallback(tweet)) {
+        invalidTweet.text(errorMessage)
+        $(".new-tweet").before(invalidTweet);
+        return false;
+    }
+
+    return true;
   }
 
   loadTweets();

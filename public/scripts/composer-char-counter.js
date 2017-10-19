@@ -1,4 +1,5 @@
 $(function() {
+  const CHAR_LIMIT = 140;
   const errorClass = "error";
 
   $(".new-tweet textarea").on("input", function() {
