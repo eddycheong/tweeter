@@ -1,0 +1,27 @@
+@import "../helpers/mixins"
+@import "../helpers/variables"
+
+.new-tweet
+  +round-border(5px, 2px, solid, #E9E9E9)
+  background-color: #EEEEEE
+  margin: 0px 2em
+  padding: 10px
+
+  h2
+    border-bottom: thin solid black
+    margin-top: 0px
+
+  textarea
+    width: 100%
+
+  span
+    float: right
+
+  .error
+    color: $error-color
+
+  &.invalid
+    +round-border(5px, 0px, inherit, inherit)
+    background-color: $error-background-color
+    color: $error-color
+    font-size: 20px

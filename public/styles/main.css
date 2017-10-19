@@ -1,0 +1,123 @@
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+body {
+  margin: 0;
+  color: #244751;
+  background-color: #eee;
+  font-family: "Roboto Condensed", sans-serif; }
+
+.container {
+  margin: 0px auto;
+  padding: 140px 0px;
+  width: 450px;
+  background-color: white; }
+
+.new-tweet {
+  border-radius: 5px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #E9E9E9;
+  background-color: #EEEEEE;
+  margin: 0px 2em;
+  padding: 10px; }
+  .new-tweet h2 {
+    border-bottom: thin solid black;
+    margin-top: 0px; }
+  .new-tweet textarea {
+    width: 100%; }
+  .new-tweet span {
+    float: right; }
+  .new-tweet .error {
+    color: #CF3B6D; }
+  .new-tweet.invalid {
+    border-radius: 5px;
+    border-width: 0px;
+    border-style: inherit;
+    border-color: inherit;
+    background-color: #F8DCDC;
+    color: #CF3B6D;
+    font-size: 20px; }
+
+#nav-bar {
+  background-color: #00A087;
+  color: #E8FDFF;
+  position: fixed;
+  height: 80px;
+  width: 100%;
+  padding: 0px 2em;
+  z-index: 1; }
+  #nav-bar .logo {
+    width: 80px;
+    height: 80px;
+    float: left; }
+  #nav-bar .header {
+    padding-left: 10px;
+    font-size: 200%;
+    line-height: 250%;
+    float: left; }
+  #nav-bar button {
+    border-radius: 5px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    background-color: #E8FDFF;
+    color: #00A087;
+    cursor: pointer;
+    float: right;
+    font-size: 24px;
+    height: 80%;
+    position: relative;
+    top: 10%; }
+    #nav-bar button:hover {
+      background-color: white;
+      color: black; }
+
+.tweet {
+  border-radius: 5px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #E9E9E9;
+  background-color: white;
+  margin: 10px 2em; }
+  .tweet:hover {
+    border: 2px solid #666666; }
+    .tweet:hover:hover footer span {
+      display: inline; }
+    .tweet:hover:hover header {
+      opacity: 1; }
+  .tweet header {
+    overflow: auto;
+    background-color: #EEEEEE;
+    opacity: 0.7;
+    padding: 10px; }
+    .tweet header h1 {
+      display: inline;
+      margin: 0px 10px; }
+    .tweet header img {
+      border-radius: 5px;
+      float: left;
+      width: 70px; }
+    .tweet header span {
+      float: right; }
+  .tweet footer {
+    border-top: thin solid #F3F3F3;
+    padding: 10px; }
+    .tweet footer p {
+      display: inline;
+      font-size: 14px;
+      padding: 0px; }
+    .tweet footer span {
+      display: none;
+      float: right; }
+    .tweet footer .fa {
+      color: #00CBBA;
+      padding: 0px 2px; }
+  .tweet p {
+    padding: 10px 10px;
+    word-break: break-all; }
+
+/*# sourceMappingURL=main.css.map */
