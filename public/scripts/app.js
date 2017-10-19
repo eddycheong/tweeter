@@ -28,32 +28,32 @@ $(function() {
       url: 'tweets',
       method: 'GET'
     })
-    .done(function(tweets) {
-      renderTweets(tweets)
-    });
+    .done(tweets => renderTweets(tweets));
   }
 
   function renderTweets(tweets) {
-    $tweetsContainer = $('#tweets-container');
+    const $tweetsContainer = $('#tweets-container');
     $tweetsContainer.empty();
 
-    tweets.forEach((tweet) => {
+    tweets.forEach(tweet => {
       $tweet = createTweetElement(tweet);
       $tweetsContainer.prepend($tweet);
     });
   }
 
   function postTweet(tweet) {
+    const $composer = $(".new-tweet form"),
+          $counter = $composer.find(".counter");
+
     $.ajax({
       url: 'tweets',
       method: 'POST',
       data: tweet
     })
     .done(function() {
-      const composer = $(".new-tweet form");
 
-      composer[0].reset();
-      composer.find(".counter").text(CHAR_LIMIT);
+      $composer[0].reset();
+      $counter.text(CHAR_LIMIT);
       loadTweets();
     });
   }
@@ -65,11 +65,11 @@ $(function() {
       $(".new-tweet.invalid").remove();
 
       const tweet = $(this).find("textarea").val();
-      const invalidTweet = $("<p>").addClass("new-tweet invalid");
 
       if(!isValidTweet(tweet,
                       isTweetEmpty,
                       "Tweets cannot be empty.")) {
+
         return;
       }
 

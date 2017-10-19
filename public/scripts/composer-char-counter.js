@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
   const errorClass = "error";
 
   $(".new-tweet textarea").on("input", function() {

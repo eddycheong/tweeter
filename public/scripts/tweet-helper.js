@@ -1,5 +1,5 @@
 function isTweetEmpty(tweet) {
-  if(tweet !== "" && tweet !== null) {
+  if(!!tweet) {
     return false;
   }
 
