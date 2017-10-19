@@ -43,7 +43,11 @@ $(function() {
 
   function postTweet(tweet) {
     const $composer = $(".new-tweet form"),
-          $counter = $composer.find(".counter");
+          $counter = $composer.find(".counter"),
+          $submit = $(".new-tweet input");
+
+
+    $submit.attr("disabled", true);
 
     $.ajax({
       url: 'tweets',
@@ -51,10 +55,12 @@ $(function() {
       data: tweet
     })
     .done(function() {
-
       $composer[0].reset();
       $counter.text(CHAR_LIMIT);
       loadTweets();
+    })
+    .always(function() {
+      $submit.removeAttr("disabled");
     });
   }
 
