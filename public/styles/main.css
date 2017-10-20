@@ -87,6 +87,13 @@ body {
     border: 2px solid #666666; }
     .tweet:hover footer span {
       display: inline; }
+      .tweet:hover footer span i.fa.fa-heart span {
+        padding-left: 5px; }
+      .tweet:hover footer span i.fa.fa-heart:hover {
+        color: red;
+        cursor: pointer; }
+      .tweet:hover footer span i[data-tweet-liked="true"] {
+        color: red; }
     .tweet:hover header {
       opacity: 1; }
   .tweet header {

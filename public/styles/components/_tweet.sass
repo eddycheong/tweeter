@@ -12,6 +12,18 @@
     footer span
       display: inline
 
+      i
+
+        &.fa.fa-heart span
+          padding-left: 5px
+
+        &.fa.fa-heart:hover
+          color: red
+          cursor: pointer
+
+        &[data-tweet-liked = "true"]
+          color: red
+
     header
       opacity: 1.0
 
