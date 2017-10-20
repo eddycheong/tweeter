@@ -1,5 +1,7 @@
 "use strict";
 
+const mongo = require("mongodb");
+
 // Defines helper functions for saving and getting tweets, using the database `db`
 module.exports = function makeDataHelpers(db) {
   return {
@@ -12,7 +14,11 @@ module.exports = function makeDataHelpers(db) {
     // Get all tweets in `db`, sorted by newest first
     getTweets: function(callback) {
       db.collection("tweets").find().toArray(callback);
-    }
+    },
 
+    // Update a specific tweet based on ID
+    updateTweet: function(tweetID, fields, callback) {
+      db.collection("tweets").updateOne({_id:mongo.ObjectID(tweetID)}, {$set: fields}, callback);
+    }
   };
 }
