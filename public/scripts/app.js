@@ -19,7 +19,8 @@ $(function() {
       handle: tweet.user.handle,
       text: tweet.content.text,
       timeSince: moment(tweet.created_at).fromNow(),
-      likes: tweet.likes
+      numLikes: tweet.likes,
+      liked: tweet.liked
     };
 
     return tweetTemplate(tweetData);
