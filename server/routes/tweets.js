@@ -41,6 +41,19 @@ module.exports = function(DataHelpers) {
     });
   });
 
+  tweetsRoutes.put("/:id", function(req, res) {
+    const tweetID = req.params.id,
+          tweetFields = JSON.parse(req.body.fields);
+
+    DataHelpers.updateTweet(tweetID, tweetFields, (err) => {
+      if (err) {
+        res.status(500).json({ error: err.message });
+      } else {
+        res.status(201).send();
+      }
+    });
+  });
+
   return tweetsRoutes;
 
 }

@@ -21,13 +21,14 @@
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
     <script type="text/javascript" src="/scripts/composer-toggle.js"></script>
+    <script type="text/javascript" src="/scripts/tweet-like-counter.js"></script>
   </head>
 
   <body>
 
     <!-- Handlebarsjs Template for Tweets-->
     <script id="tweet-template" type="text/x-handlebars-template">
-      <article class="tweet">
+      <article class="tweet" data-tweet-id={{id}}>
         <header>
           <img src={{avatar}}>
           <h1>{{name}}</h1>
@@ -39,7 +40,9 @@
           <span>
             <i class="fa fa-flag"></i>
             <i class="fa fa-retweet"></i>
-            <i class="fa fa-heart"></i>
+            <i class="fa fa-heart" data-tweet-liked={{liked}}>
+              <span>{{numLikes}}</span>
+            </i>
           </span>
         </footer>
       </article>

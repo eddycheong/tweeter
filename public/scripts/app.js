@@ -13,11 +13,14 @@ $(function() {
     const tweetTemplate = Handlebars.compile(source);
 
     const tweetData = {
+      id: tweet._id,
       avatar: tweet.user.avatars.small,
       name: tweet.user.name,
       handle: tweet.user.handle,
       text: tweet.content.text,
-      timeSince: moment(tweet.created_at).fromNow()
+      timeSince: moment(tweet.created_at).fromNow(),
+      numLikes: tweet.likes,
+      liked: tweet.liked
     };
 
     return tweetTemplate(tweetData);
