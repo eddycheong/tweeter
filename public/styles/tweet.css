@@ -69,10 +69,10 @@
   cursor: pointer;
 }
 
-/*.tweet:hover span[data-tweet-liked = "true"] {
+.tweet:hover footer span i[data-tweet-liked = "true"] {
   color: red;
 }
-*/
+
 .tweet p {
   padding: 10px 10px;
   word-break: break-all;

@@ -1,7 +1,7 @@
 $(function() {
   $("#tweets-container").on("click", ".fa-heart", function() {
     const id = $(this).closest(".tweet").data("tweet-id"),
-          $likes = $(this).find("span");
+          $likes = $(this);
 
     let numLikes = Number($likes.text()),
         liked = $likes.data("tweet-liked");
@@ -20,8 +20,11 @@ $(function() {
       data: `fields={"likes":${numLikes}, "liked":${liked}}`
     })
     .done(function(err, a,b,c) {
-      $likes.text(numLikes);
+      $likes.find("span").text(numLikes);
       $likes.data("tweet-liked", liked);
+
+      // This is required to actually change the data attribute on the client
+      $likes.attr("data-tweet-liked", liked);
     });
   });
 });
