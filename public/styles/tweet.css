@@ -59,6 +59,16 @@
   padding: 0px 2px;
 }
 
+/*Will be added and refactored by SASS */
+.tweet:hover footer span i.fa.fa-heart span {
+  padding-left: 5px;
+}
+
+.tweet:hover footer span i.fa.fa-heart:hover {
+  color: red;
+  cursor: pointer;
+}
+
 .tweet p {
   padding: 10px 10px;
   word-break: break-all;
